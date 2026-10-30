@@ -349,7 +349,7 @@ def main():
     base = (data.parent / "recovered") if data else Path(tempfile.gettempdir()) / "openidoc-recover"
     base.mkdir(parents=True, exist_ok=True)
 
-    total_out = []
+    total_out, cout_errors = [], []
 
     for i, sid in enumerate(wanted):
         doc, err = export_session(sid, base)
